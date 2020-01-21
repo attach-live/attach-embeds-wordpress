@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Plugin Name:       Attach Live
- * Plugin URI:        https://attach.live
+ * Plugin Name:       Attach Embeds
+ * Plugin URI:        https://github.com/attach-live/attach-embeds-wordpress
  * Description:       The Attach plugin adds Attach social embeds to WordPress Posts and Pages. Attach Reactions lets your visitors comment your blog posts in text and video. Then others can upvote and downvote your comments.
  * Version:           1.0.0
- * Author:            Attach Live
+ * Author:            Closeup, Inc.
  * Author URI:        https://www.attach.live/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
