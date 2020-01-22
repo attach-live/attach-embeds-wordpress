@@ -6,10 +6,10 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Attach Live
- * @subpackage attache-live/includes
+ * @package    Attach Embeds
+ * @subpackage attach-embeds/includes
  */
-class Attach_Live_Deactivator {
+class Attach_Embeds_Deactivator {
 
 	/**
 	 * Short Description. (use period)

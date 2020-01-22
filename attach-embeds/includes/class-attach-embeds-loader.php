@@ -4,8 +4,8 @@
  * Register all actions and filters for the plugin
  *
  * @since      1.0.0
- * @package    Attach Live
- * @subpackage attache-live/includes
+ * @package    Attach Embeds
+ * @subpackage attach-embeds/includes
  */
 
 /**
@@ -16,10 +16,10 @@
  * run function to execute the list of actions and filters.
  *
  * @since      1.0.0
- * @package    Attach Live
- * @subpackage attache-live/includes
+ * @package    Attach Embeds
+ * @subpackage attach-embeds/includes
  */
-class Attach_Live_Loader {
+class Attach_Embeds_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

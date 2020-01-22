@@ -2,24 +2,23 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
-.attach_live_wrap {
+.attach_embeds_wrap {
   padding: 30px;
   margin-left: -20px;
 }
-.attach_live_wrap .form-table td {
+.attach_embeds_wrap .form-table td {
   margin-bottom: 5px;
   padding: 4px 0px;
   display: block;
   max-width: 400px;
 }
-.attach_live_wrap .form-table th {
-  vertical-align: top;
+.attach_embeds_wrap .form-table th {
   text-align: left;
   padding: 20px 10px 0px 0;
   display: block;
   margin-top: 15px;
 }
-.attach_live_wrap .form-table input[type="text"] {
+.attach_embeds_wrap .form-table input[type="text"] {
   width: 100%;
 }
 .help-link {
@@ -44,18 +43,18 @@
   font-family: Courier, monospace;
   white-space: pre-wrap;
 }
-.attach_live_wrap p.submit {
+.attach_embeds_wrap p.submit {
   margin-bottom: 80px;
 }
-.attach-live-one-third,
-.attach-live-two-third {
+.attach-embeds-one-third,
+.attach-embeds-two-third {
   display: block;
   float: left;
 }
-.attach-live-one-third {
+.attach-embeds-one-third {
   width: 30%;
 }
-.attach-live-two-third {
+.attach-embeds-two-third {
   width: 70%;
 }
 .copy-btn {
@@ -65,6 +64,6 @@
 .copy-btn:hover {
   cursor: pointer;
 }
-.attach_live_wrap .notice {
+.attach_embeds_wrap .notice {
   margin: 5px 0px 2px;
 }

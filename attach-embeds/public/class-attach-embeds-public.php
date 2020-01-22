@@ -4,8 +4,8 @@
  * The public-facing functionality of the plugin.
  *
  * @since      1.0.0
- * @package    Attach Live
- * @subpackage attache-live/public
+ * @package    Attach Embeds
+ * @subpackage attach-embeds/public
  */
 
 /**
@@ -14,12 +14,12 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  * @since      1.0.0
- * @package    Attach Live
- * @subpackage attache-live/public
+ * @package    Attach Embeds
+ * @subpackage attach-embeds/public
 
  */
 
-class Attach_Live_Public {
+class Attach_Embeds_Public {
 	/**
 
 	 * The ID of this plugin.
@@ -34,7 +34,7 @@ class Attach_Live_Public {
 
 	 */
 
-	private $attach_live;
+	private $attach_embeds;
 
 
 
@@ -74,7 +74,7 @@ class Attach_Live_Public {
 
 
 
-		$this->attach_live = $attach_live;
+		$this->attach_embeds = $attach_embeds;
 
 		$this->version = $version;
 
@@ -122,7 +122,7 @@ class Attach_Live_Public {
 
 
 
-		wp_enqueue_style( $this->attach_live, plugin_dir_url( __FILE__ ) . 'css/attach-live-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->attach_embeds, plugin_dir_url( __FILE__ ) . 'css/attach-embeds-public.css', array(), $this->version, 'all' );
 
 
 
@@ -168,7 +168,7 @@ class Attach_Live_Public {
 
 
 
-		wp_enqueue_script( $this->attach_live, plugin_dir_url( __FILE__ ) . 'js/attach-live-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->attach_embeds, plugin_dir_url( __FILE__ ) . 'js/attach-embeds-public.js', array( 'jquery' ), $this->version, false );
 
 
 
@@ -188,23 +188,23 @@ class Attach_Live_Public {
 
 	 */
 
-	public function attach_live_add_meta_property() {
+	public function attach_embeds_add_meta_property() {
 
-		$options = get_option( 'attach_live_settings' );
-		$options['attach_live_text_evaluation_key'] = sanitize_text_field($options['attach_live_text_evaluation_key']);
-		$options['attach_live_text_domain_verification_code'] = sanitize_text_field($options['attach_live_text_domain_verification_code']);
+		$options = get_option( 'attach_embeds_settings' );
+		$options['attach_embeds_text_evaluation_key'] = sanitize_text_field($options['attach_embeds_text_evaluation_key']);
+		$options['attach_embeds_text_domain_verification_code'] = sanitize_text_field($options['attach_embeds_text_domain_verification_code']);
 
 		$eval_key = '';
 
-		if ( isset ( $options['attach_live_text_evaluation_key'] ) ){
+		if ( isset ( $options['attach_embeds_text_evaluation_key'] ) ){
 
-			$eval_key = $options['attach_live_text_evaluation_key'];
+			$eval_key = $options['attach_embeds_text_evaluation_key'];
 
 		}
 
-		if ( isset ( $options['attach_live_text_domain_verification_code'] ) ){
+		if ( isset ( $options['attach_embeds_text_domain_verification_code'] ) ){
 
-			$verification_code = $options['attach_live_text_domain_verification_code'];
+			$verification_code = $options['attach_embeds_text_domain_verification_code'];
 
 		}
 
@@ -224,25 +224,16 @@ class Attach_Live_Public {
 
 		
 
-	public function attach_live_show_reactions( $content ) {
+	public function attach_embeds_show_reactions( $content ) {
 
-		$options = get_option( 'attach_live_reactions_settings' );
+		$options = get_option( 'attach_embeds_reactions_settings' );
 		$options_react = get_option( 'enable_reactions_first_time' );
-        $options['attach_live_styles_reaction'] = sanitize_text_field($options['attach_live_styles_reaction']);
+        $options['attach_embeds_styles_reaction'] = sanitize_text_field($options['attach_embeds_styles_reaction']);
 				
 
-		if ( (is_single()) && (get_post_type(  ) == 'post')) {
+		if ( is_single() && in_the_loop() && is_main_query() && ( $options_react == 'enable' ||	$options['attach_embeds_enable_reaction_posts'] == 'enable' ) ) {
 
-				
-
-		if ( $options_react == 'enable' || 
-		$options['attach_live_enable_reaction_posts'] == 'enable' ){
-            
-            global $post;
-
-	        $id= $post->ID;
-
-	        $permalink = get_permalink($id);
+            global $post; $id = $post->ID; $permalink = get_permalink($id);
 	        
 			$reactions_content = $content;
 
@@ -250,13 +241,13 @@ class Attach_Live_Public {
 
 	        $reactions_content .= '<style>.attach-reactions{';
 
-    	        if ( isset ( $options['attach_live_styles_reaction'] ) and $options['attach_live_styles_reaction'] != ''){
+    	        if ( isset ( $options['attach_embeds_styles_reaction'] ) && $options['attach_embeds_styles_reaction'] != ''){
 
-    	            $reactions_content .= $options['attach_live_styles_reaction']; 
+    	            $reactions_content .= $options['attach_embeds_styles_reaction']; 
 
     	            }else{
 
-    	            $reactions_content .= 'width: 100vw;height: 400px;';
+    	            $reactions_content .= 'width: 100%;height: 800px;';
 
     	           }  
 
@@ -266,19 +257,9 @@ class Attach_Live_Public {
 
 			return $reactions_content;
 
-			
-
-		    }else{
-
-		        return $content;
-
-		    }
-
-	
-
-	
-
-	    }
+	    }else{
+	        return $content;
+	        }
 
 
 
@@ -288,55 +269,37 @@ class Attach_Live_Public {
 
 
 
-public function attach_live_show_previews( $content ) {
+public function attach_embeds_show_previews( $content ) {
+    
+    $options = get_option( 'attach_embeds_preview_settings' );
+	$options_preview = get_option( 'enable_preview_first_time' );
+	$options['attach_embeds_styles_preview'] = sanitize_text_field($options['attach_embeds_styles_preview']);
 
-    if ( (!is_single()) && (get_post_type(  ) == 'post')) {
+    if ( (!is_single()) && (get_post_type() == 'post') && in_the_loop() && is_main_query() && ( $options_preview == 'enable' || $options['attach_embeds_enable_preview_posts'] == 'enable')) {
 
-		$options = get_option( 'attach_live_preview_settings' );
-		$options_preview = get_option( 'enable_preview_first_time' );
-		
-	    $options['attach_live_styles_preview'] = sanitize_text_field($options['attach_live_styles_preview']);
+        global $post; $id= $post->ID; $permalink = get_permalink($id); $has_run = true;
+        if($has_run){
+        $preview_content = $content;
+		$preview_content .= '<div class="attach-preview" data-property-item="'.$permalink.'"></div>';
+	    $preview_content .= '<style>.attach-preview{';
+    	        if ( isset ( $options['attach_embeds_styles_preview'] ) and $options['attach_embeds_styles_preview'] != ''){
 
-		    global $post;
-
-	        $id= $post->ID;
-
-	        $permalink = get_permalink($id);
-
-	        if ( $options_preview == 'enable' || $options['attach_live_enable_preview_posts'] == 'enable'){
-
-		    $preview_content = '';
-
-			$preview_content .= '<div class="attach-preview" data-property-item="'.$permalink.'"></div>';
-
-	        $preview_content .= '<style>.attach-preview{';
-
-    	        if ( isset ( $options['attach_live_styles_preview'] ) and $options['attach_live_styles_preview'] != ''){
-
-    	            $preview_content .= $options['attach_live_styles_preview']; 
+    	            $preview_content .= $options['attach_embeds_styles_preview']; 
 
     	            }else{
 
-    	            $preview_content .= 'width:100%;height:72px;';
+    	            $preview_content .= 'width:100%;height:75px;';
 
     	           }  
-
-	        $preview_content .= '}</style>';
-
-	        $preview_content .= $content;
-
-	
-
-			return $preview_content;
-
-	        }
-
-	
+	    $preview_content .= '}</style>';
+        
+        
+		return $preview_content;
+        }
+	    $has_run = false;
 
 		}else{
-
 		    return $content;
-
 		    }
 
     }
@@ -349,11 +312,11 @@ public function attach_live_show_previews( $content ) {
 
 
 
-public function attach_live_shortcodes(){
+public function attach_embeds_shortcodes(){
 
     
 
-    add_shortcode('attach_live', array($this, 'attach_live_shortcode_function'));
+    add_shortcode('attach_embeds', array($this, 'attach_embeds_shortcode_function'));
 
     
 
@@ -361,7 +324,7 @@ public function attach_live_shortcodes(){
 
     
 
-public function attach_live_shortcode_function($atts){
+public function attach_embeds_shortcode_function($atts){
 
     ob_start();
 
@@ -371,9 +334,9 @@ public function attach_live_shortcode_function($atts){
 
 	), $atts );
 
-	$options = get_option( 'attach_live_settings' );
-	$options['attach_live_styles_reaction'] = sanitize_text_field($options['attach_live_styles_reaction']);
-	$options['attach_live_styles_preview'] = sanitize_text_field($options['attach_live_styles_preview']);
+	$options = get_option( 'attach_embeds_settings' );
+	$options['attach_embeds_styles_reaction'] = sanitize_text_field($options['attach_embeds_styles_reaction']);
+	$options['attach_embeds_styles_preview'] = sanitize_text_field($options['attach_embeds_styles_preview']);
 	global $post;
 
 	$id= $post->ID;
@@ -392,13 +355,13 @@ public function attach_live_shortcode_function($atts){
 
 	$reactions_content='';
 
-	if ( isset ( $options['attach_live_styles_reaction'] ) and $options['attach_live_styles_reaction'] != ''){
+	if ( isset ( $options['attach_embeds_styles_reaction'] ) and $options['attach_embeds_styles_reaction'] != ''){
 
-    	            $reactions_content .= $options['attach_live_styles_reaction']; 
+    	            $reactions_content .= $options['attach_embeds_styles_reaction']; 
 
     	            }else{
 
-    	            $reactions_content .= 'width: 100vw;height: 400px;';
+    	            $reactions_content .= 'width: 100%;height: 800px;';
 
     }
 
@@ -422,13 +385,13 @@ public function attach_live_shortcode_function($atts){
 
 	$preview_content='';
 
-	if ( isset ( $options['attach_live_styles_preview'] ) and $options['attach_live_styles_preview'] != ''){	    
+	if ( isset ( $options['attach_embeds_styles_preview'] ) and $options['attach_embeds_styles_preview'] != ''){	    
 
-    	            $preview_content .= $options['attach_live_styles_preview']; 
+    	            $preview_content .= $options['attach_embeds_styles_preview']; 
 
     	            }else{
 
-    	            $preview_content .= 'width:100%;height:72px;';
+    	            $preview_content .= 'width:100%;height:75px;';
 
     	           }  
 

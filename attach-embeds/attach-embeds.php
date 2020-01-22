@@ -9,9 +9,9 @@
  * Author URI:        https://www.attach.live/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       attach-live
+ * Text Domain:       attach-embeds
  * Domain Path:       /languages
- * Namespace of plugin: attach_live
+ * Namespace of plugin: attach_embeds
  */
 
 // If this file is called directly, abort.
@@ -20,34 +20,46 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 
-define( 'ATTACH_LIVE_VERSION', '1.0.0' );
+define( 'ATTACH_EMBEDS_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-attach-live-activator.php
+ * This action is documented in includes/class-attach-embeds-activator.php
  */
-function activate_attach_live() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-attach-live-activator.php';
-	Attach_Live_Activator::activate();
+
+function did_filter( $tag = '' ) {
+    global $wp_filter;
+
+    if ( ! isset( $wp_filter[ $tag ] ) ) {
+        return 0;
+    }
+
+    return $wp_filter[ $tag ];
+}
+
+function activate_attach_embeds() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-attach-embeds-activator.php';
+	Attach_Embeds_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-attach-live-deactivator.php
+ * This action is documented in includes/class-attach-embeds-deactivator.php
  */
-function deactivate_attach_live() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-attach-live-deactivator.php';
-	Attach_Live_Deactivator::deactivate();
+function deactivate_attach_embeds() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-attach-embeds-deactivator.php';
+	Attach_Embeds_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_attach_live' );
-register_deactivation_hook( __FILE__, 'deactivate_attach_live' );
+register_activation_hook( __FILE__, 'activate_attach_embeds' );
+register_deactivation_hook( __FILE__, 'deactivate_attach_embeds' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-attach-live.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-attach-embeds.php';
+
 
 
 /**
@@ -59,11 +71,11 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-attach-live.php';
  *
  * @since    1.0.0
  */
-function run_attach_live() {
+function run_attach_embeds() {
 
-	$plugin = new Attach_Live();
+	$plugin = new Attach_Embeds();
 	$plugin->run();
 
 }
-run_attach_live();
+run_attach_embeds();
 

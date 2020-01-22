@@ -17,7 +17,7 @@
  * version of the plugin.
  *
  */
-class Attach_Live {
+class Attach_Embeds {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -25,7 +25,7 @@ class Attach_Live {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Attach_Live_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Attach_Embeds_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -34,9 +34,9 @@ class Attach_Live {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $attach_live    The string used to uniquely identify this plugin.
+	 * @var      string    $attach_embeds    The string used to uniquely identify this plugin.
 	 */
-	protected $attach_live;
+	protected $attach_embeds;
 
 	/**
 	 * The current version of the plugin.
@@ -57,12 +57,12 @@ class Attach_Live {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'ATTACH_LIVE_VERSION' ) ) {
-			$this->version = ATTACH_LIVE_VERSION;
+		if ( defined( 'ATTACH_EMBEDS_VERSION' ) ) {
+			$this->version = ATTACH_EMBEDS_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->attach_live = 'attach-live';
+		$this->attach_embeds = 'attach-embeds';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -93,33 +93,33 @@ class Attach_Live {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-attach-live-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-attach-embeds-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-attach-live-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-attach-embeds-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-attach-live-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-attach-embeds-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-attach-live-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-attach-embeds-public.php';
 
-		$this->loader = new Attach_Live_Loader();
+		$this->loader = new Attach_Embeds_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Attach_Live_i18n class in order to set the domain and to register the hook
+	 * Uses the Attach_Embeds_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -127,7 +127,7 @@ class Attach_Live {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Attach_Live_i18n();
+		$plugin_i18n = new Attach_Embeds_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -142,7 +142,7 @@ class Attach_Live {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Attach_Live_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Attach_Embeds_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -150,12 +150,12 @@ class Attach_Live {
 		/**
 		 * Adding admin menu in main WordPress menu.
 		 */
-		$this->loader->add_action( 'admin_menu', $plugin_admin, 'attach_live_admin_menu' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'attach_embeds_admin_menu' );
 
 		/**
 		 * Registering all plugin settings and options.
 		 */
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'attach_live_admin_init' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'attach_embeds_admin_init' );
 		
 
 	}
@@ -169,7 +169,7 @@ class Attach_Live {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Attach_Live_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Attach_Embeds_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -177,19 +177,23 @@ class Attach_Live {
 		/**
 		 * Loading meta property in wp_head.
 		 */
-		$this->loader->add_action( 'wp_head', $plugin_public, 'attach_live_add_meta_property' );
+		$this->loader->add_action( 'wp_head', $plugin_public, 'attach_embeds_add_meta_property' );
 		
 		/**
 		 * Showing comments in the content.
 		 */
 	
-		$this->loader->add_filter( 'the_content', $plugin_public, 'attach_live_show_reactions' );
-			
-		$this->loader->add_filter( 'the_content', $plugin_public, 'attach_live_show_previews' );
-		 
-		$this->loader->add_filter( 'get_the_excerpt', $plugin_public, 'attach_live_show_previews' );
+		$this->loader->add_filter( 'the_content', $plugin_public, 'attach_embeds_show_reactions' );
 		
-		$this->loader->add_action( 'init', $plugin_public, 'attach_live_shortcodes' );
+		$this->loader->add_filter( 'the_title', $plugin_public, 'attach_embeds_show_previews' );
+		
+		//$this->loader->add_action( 'init', $plugin_public, 'attach_embeds_show_reactions' );
+			
+		//$this->loader->add_filter( 'the_content', $plugin_public, 'attach_embeds_show_previews' );
+		 
+		//$this->loader->add_filter( 'get_the_excerpt', $plugin_public, 'attach_embeds_show_previews' );
+		
+		$this->loader->add_action( 'init', $plugin_public, 'attach_embeds_shortcodes' );
 		
 
 	}
@@ -211,14 +215,14 @@ class Attach_Live {
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
-		return $this->attach_live;
+		return $this->attach_embeds;
 	}
 
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    Attach_Live_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Attach_Embeds_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;

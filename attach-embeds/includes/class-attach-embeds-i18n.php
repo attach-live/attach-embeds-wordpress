@@ -6,8 +6,8 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  * @since      1.0.0
- * @package    Attach Live
- * @subpackage attache-live/includes
+ * @package    Attach Embeds
+ * @subpackage attach-embeds/includes
  */
 
 /**
@@ -17,10 +17,10 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Attach Live
- * @subpackage attache-live/includes
+ * @package    Attach Embeds
+ * @subpackage attach-embeds/includes
  */
-class Attach_Live_i18n {
+class Attach_Embeds_i18n {
 
 
 	/**
@@ -31,7 +31,7 @@ class Attach_Live_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'attach-live',
+			'attach-embeds',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

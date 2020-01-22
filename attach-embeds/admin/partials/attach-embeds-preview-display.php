@@ -9,26 +9,26 @@
 
 <form action='options.php' method='post'>
 
-	<div class="attach_live_wrap">
+	<div class="attach_embeds_wrap">
 
-	<div id="attach-live-services-block">
+	<div id="attach-embeds-services-block">
 	<?php if(!is_ssl()){ ?>
 		<div class="notice notice-error">
-                <p><?php _e('This plugin requires a secure https connection.', 'attach-live') ?></p>
+                <p><?php _e('This plugin requires a secure https connection.', 'attach-embeds') ?></p>
             </div>
 	<?php } ?> 
 
 		<?php
 
-		settings_fields( 'attach_live_preview' );
+		settings_fields( 'attach_embeds_preview' );
 
-		do_settings_sections( 'attach_live_preview' );
+		do_settings_sections( 'attach_embeds_preview' );
 
 		submit_button("Apply", "default");
 
 
 		?>
-		<p>Shortcode: <span id="copy-target">[attach_live id="preview"]</span>
+		<p>Shortcode: <span id="copy-target">[attach_embeds id="preview"]</span>
     	<span id="copy-btn" class="copy-btn" data-clipboard-action="copy" data-clipboard-target="#copy-target">Copy</span></p>
 	</div>
 	

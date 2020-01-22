@@ -6,10 +6,10 @@
  * This class defines all code necessary to run during the plugin's activation.
  *
  * @since      1.0.0
- * @package    Attach Live
- * @subpackage attach-live/includes
+ * @package    Attach Embeds
+ * @subpackage attach-embeds/includes
  */
-class Attach_Live_Activator {
+class Attach_Embeds_Activator {
 
 	/**
 	 *

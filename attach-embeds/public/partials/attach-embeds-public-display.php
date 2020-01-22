@@ -6,8 +6,8 @@
  * This file is used to markup the public-facing aspects of the plugin.
  *
  * @since      1.0.0
- * @package    Attach Live
- * @subpackage attache-live/public/partials
+ * @package    Attach Embeds
+ * @subpackage attache-embeds/public/partials
  */
 ?>
 
