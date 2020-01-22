@@ -1,6 +1,6 @@
 === Attach Embeds ===
 Contributors: jahur
-Tags: social media, social network, blog, press, article, vlog, embed, attach, comment, video, reactions, view, vote, questionnaire, emotions, emoticons, upvote, downvote
+Tags: social media, blog, press, comment, video, embed, attach, article, vlog, reactions, preview, vote, questionnaire, emoticons, free
 Requires at least: 4.9
 Tested up to: 5.2.3
 Stable tag: 1.0.0
