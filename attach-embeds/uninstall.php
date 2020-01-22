@@ -21,7 +21,7 @@
  *
  * @since      1.0.0
  *
- * @package    attach-live
+ * @package    attach-embeds
  */
 
 // If uninstall not called from WordPress, then exit.
