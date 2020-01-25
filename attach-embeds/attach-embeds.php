@@ -27,16 +27,6 @@ define( 'ATTACH_EMBEDS_VERSION', '1.0.0' );
  * This action is documented in includes/class-attach-embeds-activator.php
  */
 
-function did_filter( $tag = '' ) {
-    global $wp_filter;
-
-    if ( ! isset( $wp_filter[ $tag ] ) ) {
-        return 0;
-    }
-
-    return $wp_filter[ $tag ];
-}
-
 function activate_attach_embeds() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-attach-embeds-activator.php';
 	Attach_Embeds_Activator::activate();

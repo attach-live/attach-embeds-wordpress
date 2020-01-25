@@ -363,7 +363,8 @@ class Attach_Embeds_Admin {
 			echo str_replace(' ',"\n",$style_reactions);
 		}else{
 			$options['attach_embeds_styles_reaction'] = sanitize_text_field($options['attach_embeds_styles_reaction']);
-			echo str_replace(';',";\n",$options['attach_embeds_styles_reaction']);
+			$g = str_replace(';',";\n",$options['attach_embeds_styles_reaction']);
+			echo str_replace(':',": ",$g);
 		}
 			
 		?></textarea>
@@ -418,7 +419,8 @@ class Attach_Embeds_Admin {
 			echo str_replace(' ',"\n",$style_preview);
 		}else{
 			$options['attach_embeds_styles_preview'] = sanitize_text_field($options['attach_embeds_styles_preview']);
-			echo str_replace(';',";\n",$options['attach_embeds_styles_preview']);
+			$g = str_replace(';',";\n",$options['attach_embeds_styles_preview']);
+			echo str_replace(':',": ",$g);
 		}
 		
 		?></textarea>
