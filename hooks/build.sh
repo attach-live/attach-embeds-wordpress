@@ -17,7 +17,7 @@ case $BRANCH_NAME in prod*)
   # prod-m3-timestamp-hotfix -> -hotfix
   # prod-m3-timestamp -> ''
   SUFFIX="$(node -p "const suffix = '"$BRANCH_NAME"'.split('-')[3]; suffix ? '-' + suffix : ''")"
-  TIMESTAMP="$(node -p "Date.now()")"
+  TIMESTAMP="$(node -p "Math.round(Date.now() / 1000)")"
 
   VERSION="$MAJOR.$MINOR.$PATCH-$TIMESTAMP$SUFFIX"
 
@@ -31,6 +31,12 @@ case $BRANCH_NAME in prod*)
   DIFFERS="$(diff -rq attach-embeds attach-embeds-remote/tags/$REMOTE_VERSION)"
 
   if [ -z "$DIFFERS" ]; then
+    # log
+    echo "Publishing attach-embeds-wordpress because compared to the remote, code has changed"
+    echo $DIFFERS
+    echo "VERSION $VERSION"
+    echo "REMOTE_VERSION $REMOTE_VERSION"
+
     # set version
     sed -i "s/$REMOTE_VERSION/$VERSION/g" ./attach-embeds/attach-embeds.php
 
