@@ -7,20 +7,6 @@ set -e
 # name arguments
 BRANCH_NAME=$1
 
-# set version
-case $BRANCH_NAME in dev*)
-  # hardcoded
-  MAJOR="1"
-  # dev-m3 -> 3
-  # dev -> 0
-  MINOR="$(node -p "const minor = '"$BRANCH_NAME"'.split('-')[1]; minor ? minor.slice(1) : 0")"
-  # hardcoded
-  PATCH="0"
-
-  # TODO: set SVN version
-esac
-
-
 case $BRANCH_NAME in prod*)
   # hardcoded
   MAJOR="1"
@@ -31,8 +17,31 @@ case $BRANCH_NAME in prod*)
   # prod-m3-timestamp-hotfix -> -hotfix
   # prod-m3-timestamp -> ''
   SUFFIX="$(node -p "const suffix = '"$BRANCH_NAME"'.split('-')[3]; suffix ? '-' + suffix : ''")"
+  TIMESTAMP="$(node -p "Date.now()")"
 
-  # TODO: set SVN version
+  VERSION="$MAJOR.$MINOR.$PATCH-$TIMESTAMP$SUFFIX"
+
+  # pull
+  apt-get update && apt-get install -y subversion ca-certificates
+  svn co $SVN_URL attach-embeds-remote
+
+  # compare
+  REMOTE_VERSION="$(ls ./attach-embeds-remote/tags | cut -f1 -d'/' | sort | tail -n 1)"
+  sed -i "s/0.0.0/$REMOTE_VERSION/g" ./attach-embeds/attach-embeds.php
+  DIFFERS="$(diff -rq attach-embeds attach-embeds-remote/tags/$REMOTE_VERSION)"
+
+  if [ -z "$DIFFERS" ]; then
+    # set version
+    sed -i "s/$REMOTE_VERSION/$VERSION/g" ./attach-embeds/attach-embeds.php
+
+    # publish
+    cp -rf attach-embeds attach-embeds-remote/tags/$VERSION
+    cd attach-embeds-remote
+    svn add tags/*
+    svn ci -m "Version $VERSION" --no-auth-cache --username $SVN_USERNAME --password $SVN_PASSWORD
+  else
+    # log and exit
+    echo "Not publishing attach-embeds-wordpress because compared to the remote, no code has changed"
+    exit 0
+  fi
 esac
-
-# TODO: svn build and / or publish
