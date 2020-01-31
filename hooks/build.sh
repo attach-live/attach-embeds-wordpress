@@ -30,7 +30,7 @@ case $BRANCH_NAME in prod*)
   sed -i "s/0.0.0/$REMOTE_VERSION/g" ./attach-embeds/attach-embeds.php
   DIFFERS="$(diff -rq attach-embeds attach-embeds-remote/tags/$REMOTE_VERSION)"
 
-  if [ -z "$DIFFERS" ]; then
+  if [ ! -z "$DIFFERS" ]; then
     # log
     echo "Publishing attach-embeds-wordpress because compared to the remote, code has changed"
     echo $DIFFERS
@@ -43,7 +43,7 @@ case $BRANCH_NAME in prod*)
     # publish
     cp -rf attach-embeds attach-embeds-remote/tags/$VERSION
     cd attach-embeds-remote
-    svn add tags/*
+    svn add tags/$VERSION
     svn ci -m "Version $VERSION" --no-auth-cache --username $SVN_USERNAME --password $SVN_PASSWORD
   else
     # log and exit
