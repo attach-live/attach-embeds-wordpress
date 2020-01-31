@@ -24,12 +24,14 @@
 
 		do_settings_sections( 'attach_embeds_preview' );
 
-		submit_button("Apply", "default");
+		submit_button( __('Apply', 'attach-embeds') , "default");
 
 
 		?>
 		<p>Shortcode: <span id="copy-target">[attach_embeds id="preview"]</span>
-    	<span id="copy-btn" class="copy-btn" data-clipboard-action="copy" data-clipboard-target="#copy-target">Copy</span></p>
+    	<span id="copy-btn" class="copy-btn" data-clipboard-action="copy" data-clipboard-target="#copy-target">
+		<?php _e('Copy', 'attach-embeds') ?>
+		</span></p>
 	</div>
 	
 	</div>

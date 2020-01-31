@@ -288,14 +288,14 @@ class Attach_Embeds_Admin {
 	 */		
 	function attach_embeds_settings_section_callback() { 
 	
-		echo '<h1 class="section-title"> Setup </h1>
-		<p style="margin-top: 30px;">For an evaluation key, register with Attach and create an account, 
+		echo '<h1 class="section-title">' . esc_html__('Setup', 'attach-embeds') . '</h1>
+		<p style="margin-top: 30px;">' . esc_html__('For an evaluation key, register with Attach and create an account, 
 		then copy the key here. Evaluation projects can be run on localhost, but no feeds will be sent to the Attach social network. 
 		Once you are ready for serving to your customers, verify your domain and click “Start serving” 
 		on the “Production” tab in the Attach developer platform. Your evaluation key will automatically expire after the time you 
-		have set and you will need to get a new key to continue developing once expired.
-		</p>
-		<!--<a class="help-link" class="attach-embeds-settings-section" href="https://youtube.com" target="_blank">Watch a video how to get started with Attach</a>-->';
+		have set and you will need to get a new key to continue developing once expired.', 'attach-embeds') . 
+		'</p>
+		<!--<a class="help-link" class="attach-embeds-settings-section" href="https://youtube.com" target="_blank">'.esc_html__('Watch a video how to get started with Attach.','attach-embeds') .'</a>-->';
 
 	}
 
@@ -309,23 +309,21 @@ class Attach_Embeds_Admin {
 		<tr><th scope="row"></th><td>
 		<div class="attach-embeds-two-third">
 		<select id="brand-aug-dist">
-		<option value="'.$brandingUrl.'">Branding</option>
-		<option value="'.$augmentedRealityUrl.'">Augmented Reality</option>
-		<option value="'.$distribution.'">Distribution</option>
+		<option value="'.$brandingUrl.'">' . esc_html__('Branding','attach-embeds') . '</option>
+		<option value="'.$augmentedRealityUrl.'">' . esc_html__('Augmented Reality','attach-embeds') . '</option>
+		<option value="'.$distribution.'">' . esc_html__('Distribution','attach-embeds') . '</option>
 		</select>	
 		</div>
 		<div class="attach-embeds-one-third">
 		<a id="brand-aug-dist-config" class="button button-default" 
-		href="https://developers.attach.live/organizations/latest/projects/latest/branding" target="_blank">Configure</a>
+		href="https://developers.attach.live/organizations/latest/projects/latest/branding" target="_blank">' . esc_html__('Configure','attach-embeds') . '</a>
 		</div>
 		</td></tr></tbody></table>';
 	}
 
 	function attach_embeds_reactions_section_callback(){
-		echo '<h1 class="section-title"> Reactions Embed </h1>
-		<p style="margin-top: 30px;">The Reactions Embed is enabled for all Posts by default. 
-		If you wish to control where the embed is placed, disable it here and use the shortcode in your templates, instead.
-		</p>';
+		echo '<h1 class="section-title">' . esc_html__('Reactions Embed','attach-embeds') . '</h1>
+		<p style="margin-top: 30px;">' . esc_html__('The Reactions Embed is enabled for all Posts by default. If you wish to control where the embed is placed, disable it here and use the shortcode in your templates, instead.','attach-embeds') . '</p>';
 	}
 
 	function attach_embeds_enable_reaction_posts() {
@@ -378,9 +376,9 @@ class Attach_Embeds_Admin {
 		<?php
 	}
 	function attach_embeds_previews_section_callback(){
-		echo '<h1 class="section-title"> Preview Embed </h1>
-		<p style="margin-top: 30px;">The Preview Embed is enabled on the Blog Posts Page by default. 
-		If you wish to control where the embed is placed, disable it here and use the shortcode in your templates, instead.</p>';
+		echo '<h1 class="section-title">' . esc_html__('Preview Embed','attach-embeds') . '</h1>
+		<p style="margin-top: 30px;">' . esc_html__('The Preview Embed is enabled on the Blog Posts Page by default. 
+		If you wish to control where the embed is placed, disable it here and use the shortcode in your templates, instead.','attach-embeds') . '</p>';
 	}
 
 	function attach_embeds_enable_preview_posts() {
@@ -396,7 +394,7 @@ class Attach_Embeds_Admin {
 		}
 			
 		?>
-		<input type="checkbox" class="ios8-switch" id="attach_embeds_light" name='attach_embeds_preview_settings[attach_embeds_enable_preview_posts]' value='enable' 
+		<input type="checkbox" class="" id="attach_embeds_light" name='attach_embeds_preview_settings[attach_embeds_enable_preview_posts]' value='enable' 
 				<?php echo ($options['attach_embeds_enable_preview_posts'] == 'enable') ? 'checked' : '' ?> > 
 				<label for="attach_embeds_light"><b><?php echo __( 'Enable for Blog Post Page', 'attach-embeds' ) ?></b><br/></label>
 		<?php

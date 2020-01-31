@@ -23,7 +23,7 @@
 
 				do_settings_sections( 'attach_embeds_options' );
 
-				submit_button("Apply", "default");
+				submit_button( __('Apply', 'attach-embeds') , "default");
 
 			?>
 
