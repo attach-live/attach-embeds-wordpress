@@ -8,13 +8,13 @@ BRANCH_NAME=$1
 
 # download
 case $BRANCH_NAME in dev*)
-  wget --user $LOCO_KEY --password $LOCO_KEY -O mo.uip localise.biz/api/export/archive/mo.zip?fallback=en
-  wget --user $LOCO_KEY --password $LOCO_KEY -O po.uip localise.biz/api/export/archive/po.zip
+  wget --user $LOCO_KEY --password $LOCO_KEY -O mo.zip localise.biz/api/export/archive/mo.zip?fallback=en
+  wget --user $LOCO_KEY --password $LOCO_KEY -O po.zip localise.biz/api/export/archive/po.zip
 esac
 
 case $BRANCH_NAME in prod*)
-  wget --user $LOCO_KEY --password $LOCO_KEY -O mo.uip localise.biz/api/export/archive/mo.zip
-  wget --user $LOCO_KEY --password $LOCO_KEY -O po.uip localise.biz/api/export/archive/po.zip
+  wget --user $LOCO_KEY --password $LOCO_KEY -O mo.zip localise.biz/api/export/archive/mo.zip
+  wget --user $LOCO_KEY --password $LOCO_KEY -O po.zip localise.biz/api/export/archive/po.zip
 esac
 
 # unzip
