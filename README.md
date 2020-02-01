@@ -2,6 +2,8 @@
 
 A WordPress plugin for Attach embeds
 
+https://cs.wordpress.org/plugins/attach-embeds/
+
 ## Versioning
 
 We use CI, which is not compatible with semantic versioning. Semantic version numbers are injected during build. DO NOT update the `0.0.0` version number in files.
