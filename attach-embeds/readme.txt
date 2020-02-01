@@ -60,9 +60,9 @@ Write to team@attach.live for feature requests, suggestions, and support.
 
 == Screenshots ==
 
-1. screenshot-1.jpg
-2. screenshot-2.jpg
-3. screenshot-3.jpg
+1. screenshot-ui-reactions.png
+2. screenshot-admin-setup.png
+3. screenshot-admin-reactions.png
 
 == Changelog ==
 
