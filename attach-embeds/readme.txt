@@ -39,13 +39,13 @@ Then others can upvote and downvote your comments.
 5.	On the Evaluation tab in your project settings, copy the evaluation key.
 6.	In WordPress, paste the evaluation key into the appropriate textbox on the Setup tab.
 
-== Development ==
+= Development =
 
 -	Your evaluation key is valid for a limited time, by default for one week.
 -	You need a valid evaluation key for running your page off your domain.
 -	If required, get another key on the Attach developer platform [https://developers.attach.live/organizations/latest/projects/latest/evaluation](https://developers.attach.live/organizations/latest/projects/latest/evaluation).
 
-== Production ==
+= Production =
 
 -	Enter your domain on the Attach developer platform
 [https://developers.attach.live/organizations/latest/domains/new](https://developers.attach.live/organizations/latest/domains/new).
