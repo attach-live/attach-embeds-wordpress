@@ -2,7 +2,7 @@
 
 A WordPress plugin for Attach embeds
 
-https://cs.wordpress.org/plugins/attach-embeds/
+https://wordpress.org/plugins/attach-embeds/
 
 ## Versioning
 
