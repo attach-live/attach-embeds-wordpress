@@ -10,6 +10,6 @@ RUN apt-get update && apt-get install -y wget unzip \
 COPY attach-embeds /var/www/html/wp-content/plugins/
 
 # run
-COPY run.sh run.sh
-RUN chmod +x run.sh
-CMD ["./run.sh"]
+COPY run.sh /var/run.sh
+RUN chmod +x /var/run.sh
+CMD ["/var/run.sh"]

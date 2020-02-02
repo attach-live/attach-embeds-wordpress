@@ -7,4 +7,4 @@ set -e
 cp -r /var/languages/. /var/www/html/wp-content/languages/
 
 # run
-exec apache2-foreground
+exec docker-entrypoint.sh apache2-foreground
