@@ -109,12 +109,6 @@ msgstr ""
 msgid "Enable for Blog Post Page"
 msgstr ""
 
-#: admin/partials/attach-embeds-admin-display.php:16
-#: admin/partials/attach-embeds-preview-display.php:17
-#: admin/partials/attach-embeds-reactions-display.php:18
-msgid "This plugin requires a secure https connection."
-msgstr ""
-
 #: admin/partials/attach-embeds-admin-display.php:26
 #: admin/partials/attach-embeds-preview-display.php:27
 #: admin/partials/attach-embeds-reactions-display.php:28
