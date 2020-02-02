@@ -322,7 +322,7 @@ class Attach_Embeds_Admin {
 	}
 
 	function attach_embeds_reactions_section_callback(){
-		echo '<h1 class="section-title">' . esc_html__('Reactions Embed','attach-embeds') . '</h1>
+		echo '<h1 class="section-title"> Reactions Embed </h1>
 		<p style="margin-top: 30px;">' . esc_html__('The Reactions Embed is enabled for all Posts by default. If you wish to control where the embed is placed, disable it here and use the shortcode in your templates, instead.','attach-embeds') . '</p>';
 	}
 
@@ -376,7 +376,7 @@ class Attach_Embeds_Admin {
 		<?php
 	}
 	function attach_embeds_previews_section_callback(){
-		echo '<h1 class="section-title">' . esc_html__('Preview Embed','attach-embeds') . '</h1>
+		echo '<h1 class="section-title"> Preview Embed </h1>
 		<p style="margin-top: 30px;">' . esc_html__('The Preview Embed is enabled on the Blog Posts Page by default. 
 		If you wish to control where the embed is placed, disable it here and use the shortcode in your templates, instead.','attach-embeds') . '</p>';
 	}
