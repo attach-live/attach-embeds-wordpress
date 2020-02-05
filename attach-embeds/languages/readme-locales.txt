@@ -1,0 +1,1 @@
+Language assets are not managed in this repository. We inject these during build. Contact us if you need the latest *.po files for debugging.
