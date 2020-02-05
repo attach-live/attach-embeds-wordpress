@@ -13,7 +13,6 @@
 
 	<div id="attach-embeds-services-block">
 
-	<?php if(!is_ssl()){ ?>
 		<?php
 
 		settings_fields( 'attach_embeds_reactions' );
