@@ -49,6 +49,11 @@ locales.forEach(locale => {
 		`po/${PROJECT}-po-archive/locales/${locale}/LC_MESSAGES/${PROJECT}.po`,
 		`attach-embeds/languages/attach-embeds-${locale}.po`
 	)
+
+	fs.copyFileSync(
+		`mo/${PROJECT}-mo-archive/locales/${locale}/LC_MESSAGES/${PROJECT}.mo`,
+		`attach-embeds/languages/attach-embeds-${locale}.mo`
+	)
 })
 
 if (prodError && BRANCH_NAME.startsWith('prod')) process.exit(1)

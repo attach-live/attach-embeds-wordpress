@@ -22,6 +22,11 @@ apt-get update && apt-get install -y unzip
 unzip mo.zip -d mo
 unzip po.zip -d po
 
+# clear
+rm -rf mo.zip
+rm -rf po.zip
+rm -rf ./attach-embeds/languages/*
+
 # extract
 npm install -g po2json@0.4.5
 npm link po2json
