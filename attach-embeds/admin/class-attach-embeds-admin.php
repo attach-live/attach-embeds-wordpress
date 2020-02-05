@@ -102,7 +102,7 @@ class Attach_Embeds_Admin {
 	     */
 
 		add_menu_page( 'Attach', 'Attach', 'manage_options', 'attach_embeds_settings', array( $this, 'display_plugin_setup_page' ), plugins_url('images/icon-attach-embeds.jpg', __FILE__), 99 );
-		add_submenu_page( 'attach_embeds_settings', 'Setup', 'Setup', 'manage_options', 'attach_embeds_settings' );
+		add_submenu_page( 'attach_embeds_settings',  __('Setup', 'attach-embeds'), __('Setup', 'attach-embeds'), 'manage_options', 'attach_embeds_settings' );
 		add_submenu_page( 'attach_embeds_settings', 'Reactions Embed', 'Reactions Embed', 'manage_options', 'attach_embeds_reactions', array( $this, 'display_plugin_reactions_page' ) );
 		add_submenu_page( 'attach_embeds_settings', 'Preview Embed', 'Preview Embed', 'manage_options', 'attach_embeds_preview', array( $this, 'display_plugin_preview_page' ) );
 	
@@ -344,15 +344,16 @@ class Attach_Embeds_Admin {
 
 	function attach_embeds_styles_reaction(){
 		$options = get_option( 'attach_embeds_reactions_settings' );
+		$reaction_default_css = get_option( 'reaction_default_css' );
 		if ( !isset ( $options['attach_embeds_styles_reaction'] ) )
 			$options['attach_embeds_styles_reaction'] = '';
 			$options['attach_embeds_styles_reaction'] = trim(preg_replace('/\s+/', ' ', $options['attach_embeds_styles_reaction']));
 		?>
 		<span class="code-style">&lt;style&gt;</span>
 		<span class="code-style">.attach-reactions{</span>
-		<textarea class="code-field" rows="4" cols="50" name='attach_embeds_reactions_settings[attach_embeds_styles_reaction]'><?php
+		<textarea class="code-field" rows="6" cols="50" name='attach_embeds_reactions_settings[attach_embeds_styles_reaction]'><?php
 		if($options['attach_embeds_styles_reaction'] == ''){
-			$style_reactions="width:100%; height:800px;";
+			$style_reactions = $reaction_default_css;
 			echo str_replace(' ',"\n",$style_reactions);
 		}else{
 			$options['attach_embeds_styles_reaction'] = sanitize_text_field($options['attach_embeds_styles_reaction']);
@@ -398,16 +399,17 @@ class Attach_Embeds_Admin {
 
 	function attach_embeds_styles_preview(){
 		$options = get_option( 'attach_embeds_preview_settings' );
+		$preview_default_css = get_option( 'preview_default_css' );
 		if ( !isset ( $options['attach_embeds_styles_preview'] ) )
 			$options['attach_embeds_styles_preview'] = '';
 			$options['attach_embeds_styles_preview'] = trim(preg_replace('/\s+/', ' ', $options['attach_embeds_styles_preview']));
 		?>
 		<span class="code-style">&lt;style&gt;</span>
 		<span class="code-style">.attach-preview{</span>
-		<textarea class="code-field" rows="4" cols="50" name='attach_embeds_preview_settings[attach_embeds_styles_preview]'><?php 
+		<textarea class="code-field" rows="6" cols="50" name='attach_embeds_preview_settings[attach_embeds_styles_preview]'><?php 
 		
 		if($options['attach_embeds_styles_preview'] == ''){
-			$style_preview="width:100%; height:75px;";
+			$style_preview=$preview_default_css;
 			echo str_replace(' ',"\n",$style_preview);
 		}else{
 			$options['attach_embeds_styles_preview'] = sanitize_text_field($options['attach_embeds_styles_preview']);

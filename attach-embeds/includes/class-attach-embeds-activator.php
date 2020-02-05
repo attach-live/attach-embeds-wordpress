@@ -21,7 +21,9 @@ class Attach_Embeds_Activator {
 	public static function activate() {
 
 		update_option('enable_reactions_first_time', 'enable', true);
-		update_option('enable_preview_first_time', 'enable', true);
+		update_option('enable_preview_first_time', 'disable', true);
+		update_option('preview_default_css', 'width: 100%;', true);
+		update_option('reaction_default_css', 'width: 100%;', true);
 
 	}
 
