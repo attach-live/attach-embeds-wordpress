@@ -46,13 +46,8 @@ locales.forEach(locale => {
 
 	// copy
 	fs.copyFileSync(
-		`mo/${PROJECT}-mo-archive/locales/${locale}/LC_MESSAGES/${PROJECT}.mo`,
-		`attach-embeds/languages/${locale}.mo`
-	)
-
-	fs.copyFileSync(
 		`po/${PROJECT}-po-archive/locales/${locale}/LC_MESSAGES/${PROJECT}.po`,
-		`attach-embeds/languages/${locale}.po`
+		`attach-embeds/languages/attach-embeds-${locale.toLowerCase()}_${locale.toUpperCase()}.po`
 	)
 })
 
