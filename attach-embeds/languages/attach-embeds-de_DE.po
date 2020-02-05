@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: embeds-wordpress\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-30 13:18-0400\n"
+"PO-Revision-Date: 2020-02-05 10:06-0400\n"
+"Last-Translator: Oliver Hausler\n"
+"Language-Team: German\n"
+"Language: de-DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz\n"
+"X-Loco-Source-Locale: en-US\n"
+"X-Loco-Project-Id: 83184\n"
+"X-Loco-Api-Version: 1.0.24 20191119-1"
+
+#: admin/class-attach-embeds-admin.php:178 loco:5e347bc44d3dd706e66eb3e2
+msgid "Domain verification code"
+msgstr "Domainverifizierungscode"
+
+#: admin/class-attach-embeds-admin.php:261 loco:5e347bc44d3dd706e66eb3e3
+msgid "Create an account or get a key"
+msgstr "Erstelle ein Konto oder hole einen Schlüssel"
+
+#: admin/class-attach-embeds-admin.php:278 loco:5e347bc44d3dd706e66eb3e4
+msgid "Verify your domain"
+msgstr "Verifiziere deine Domain"
+
+#: admin/class-attach-embeds-admin.php:291 loco:5e347bc44d3dd706e66eb3e5
+msgid "Setup"
+msgstr "Einrichtung"
+
+#: admin/class-attach-embeds-admin.php:292 loco:5e347bc44d3dd706e66eb3e6
+msgid ""
+"For an evaluation key, register with Attach and create an account, then copy "
+"the key here. Evaluation projects can be run on \"localhost\", but no feeds "
+"will be sent to the Attach social network. Once you are ready for serving to "
+"your customers, verify your domain and click \"Start serving\" on the "
+"\"Production\" tab in the Attach developer platform. Your evaluation key "
+"will automatically expire after the time you have set and you will need to "
+"get a new key to continue developing once expired."
+msgstr ""
+"Um einen Evaluierungsschlüssel zu erhalten, registriere dich bei Attach und "
+"erstelle ein Projekt, dann kopiere den Schlüssel hier her. Projekte mit "
+"Evaluierungsschlüssel können auf \"localhost\" getestet werden, dabei werden "
+"jedoch keine Feeds an das Attach Social Network gesendet. Um Attach für "
+"deine Kunden verfügbar zu machen, verifiziere deine Domäne und wähle auf der "
+"Attach Developer Platform \"Start serving\" im Bereich \"Production\". Dein "
+"Evaluierungsschlüssel verfällt nach der eingegebenen Zeit und du brauchst "
+"einen neuen Schlüssel, um später mit der Einrichtung fortzufahren."
+
+#: admin/class-attach-embeds-admin.php:298 loco:5e347bc44d3dd706e66eb3e7
+msgid "Watch a video how to get started with Attach"
+msgstr "Schau dir ein Video an um mit Attach zu beginnen"
+
+#: admin/class-attach-embeds-admin.php:312 loco:5e347bc44d3dd706e66eb3e8
+msgid "Branding"
+msgstr "Branding"
+
+#: admin/class-attach-embeds-admin.php:313 loco:5e347bc44d3dd706e66eb3e9
+msgid "Augmented Reality"
+msgstr "Augmented Reality"
+
+#: admin/class-attach-embeds-admin.php:314 loco:5e347bc44d3dd706e66eb3ea
+msgid "Distribution"
+msgstr "Distribution"
+
+#: admin/class-attach-embeds-admin.php:319 loco:5e347bc44d3dd706e66eb3eb
+msgid "Configure"
+msgstr "Konfigurieren"
+
+#: admin/class-attach-embeds-admin.php:326 loco:5e347bc44d3dd706e66eb3ed
+msgid ""
+"The Reactions Embed is enabled for all posts by default. If you wish to "
+"control where the embed is placed, disable it here and use the shortcode "
+"instead."
+msgstr ""
+"Das Reactions Embed ist standardmässig für Beiträge eingeschaltet. Wenn du "
+"mehr Kontrolle wünschst, schalte es hier aus und verwende stattdessen den "
+"Shortcode."
+
+#: admin/class-attach-embeds-admin.php:344 loco:5e347bc44d3dd706e66eb3ee
+msgid "Enable for posts"
+msgstr "Einschalten für Beiträge"
+
+#: admin/class-attach-embeds-admin.php:373
+#: admin/class-attach-embeds-admin.php:430 loco:5e347bc44d3dd706e66eb3ef
+msgid "Configure visuals"
+msgstr "Design konfigurieren"
+
+#: admin/class-attach-embeds-admin.php:380 loco:5e347bc44d3dd706e66eb3f1
+msgid ""
+"The Preview Embed is disabled by default because some themes do not properly "
+"display it. For most themes, which includes all default themes, you may just "
+"enable it here, otherwise you may wish to place the embed using its "
+"shortcode, instead."
+msgstr ""
+"Das Preview Embed ist im Standard ausgeschaltet, weil es einige Themes nicht "
+"sauber darstellen. Für die meisten Themes, inklusive für alle Default Themes,"
+" kannst du es einfach hier einschalten. Ansonsten müsstest du den Shortcode "
+"verwenden, um Preview Embeds auf Übersichtsseiten anzuzeigen."
+
+#: admin/class-attach-embeds-admin.php:399 loco:5e347bc44d3dd706e66eb3f2
+msgid "Enable for blog post page"
+msgstr "Einschalten für Übersichtsseiten"
+
+#: admin/partials/attach-embeds-admin-display.php:26
+#: admin/partials/attach-embeds-preview-display.php:27
+#: admin/partials/attach-embeds-reactions-display.php:28
+#: loco:5e347bc44d3dd706e66eb3f4
+msgid "Apply"
+msgstr "Übernehmen"
+
+#: admin/partials/attach-embeds-preview-display.php:33
+#: admin/partials/attach-embeds-reactions-display.php:35
+#: loco:5e347bc44d3dd706e66eb3f5
+msgid "Copy"
+msgstr "Kopieren"
+
+#: loco:5e3aca464d3dd771395bdfb4
+msgid "Evaluation key"
+msgstr "Evaluierungsschlüssel"
