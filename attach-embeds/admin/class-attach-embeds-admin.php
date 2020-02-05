@@ -421,7 +421,7 @@ class Attach_Embeds_Admin {
 		
 			
 			<a style="margin-top:30px;display:inline-block" href="<?php echo esc_url('https://developers.attach.live/organizations/latest/projects/latest/embeds/preview')?>" target="_new">
-			<?php _e( 'Configure visuals ', 'attach-embeds' ) ?>
+			<?php _e( 'Configure visuals', 'attach-embeds' ) ?>
 			</a>
 		
 		<?php
