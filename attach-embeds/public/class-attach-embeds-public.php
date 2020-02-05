@@ -228,6 +228,8 @@ class Attach_Embeds_Public {
 
 		$options = get_option( 'attach_embeds_reactions_settings' );
 		$options_react = get_option( 'enable_reactions_first_time' );
+		$options_react_default = get_option( 'reaction_default_css' );
+		
         $options['attach_embeds_styles_reaction'] = sanitize_text_field($options['attach_embeds_styles_reaction']);
 				
 
@@ -245,9 +247,10 @@ class Attach_Embeds_Public {
 
     	            $reactions_content .= $options['attach_embeds_styles_reaction']; 
 
-    	            }else{
+					}
+					else{
 
-    	            $reactions_content .= 'width: 100%;height: 800px;';
+    	            $reactions_content .= $options_react_default;
 
     	           }  
 
@@ -273,6 +276,7 @@ public function attach_embeds_show_previews( $content ) {
     
     $options = get_option( 'attach_embeds_preview_settings' );
 	$options_preview = get_option( 'enable_preview_first_time' );
+	$options_preview_default = get_option( 'preview_default_css' );
 	$options['attach_embeds_styles_preview'] = sanitize_text_field($options['attach_embeds_styles_preview']);
 
     if ( (!is_single()) && (get_post_type() == 'post') && in_the_loop() && is_main_query() && ( $options_preview == 'enable' || $options['attach_embeds_enable_preview_posts'] == 'enable')) {
@@ -286,9 +290,10 @@ public function attach_embeds_show_previews( $content ) {
 
     	            $preview_content .= $options['attach_embeds_styles_preview']; 
 
-    	            }else{
+				     }
+				else{
 
-    	            $preview_content .= 'width:100%;height:75px;';
+    	            $preview_content .= $options_preview_default;
 
     	           }  
 	    $preview_content .= '}</style>';
@@ -345,7 +350,9 @@ public function attach_embeds_shortcode_function($atts){
 
 	?>
 
-	<?php if($shortcode_atts['id']=='reactions') { ?>
+	<?php if($shortcode_atts['id']=='reactions') {
+	$options_react_default = get_option( 'reaction_default_css' );
+	?>
 
 	<div class="attach-reactions" data-property-item="<?php echo $permalink; ?>"></div>
 
@@ -359,9 +366,10 @@ public function attach_embeds_shortcode_function($atts){
 
     	            $reactions_content .= $options['attach_embeds_styles_reaction']; 
 
-    	            }else{
+					}
+					else{
 
-    	            $reactions_content .= 'width: 100%;height: 800px;';
+    	            $reactions_content .= $options_react_default;
 
     }
 
@@ -375,7 +383,9 @@ public function attach_embeds_shortcode_function($atts){
 
 	
 
-	<?php if($shortcode_atts['id']=='preview') { ?>
+	<?php if($shortcode_atts['id']=='preview') {
+	$options_preview_default = get_option( 'preview_default_css' );
+	?>
 
 	<div class="attach-preview" data-property-item="<?php echo $permalink; ?>"></div>
 
@@ -389,9 +399,10 @@ public function attach_embeds_shortcode_function($atts){
 
     	            $preview_content .= $options['attach_embeds_styles_preview']; 
 
-    	            }else{
+					}
+					else{
 
-    	            $preview_content .= 'width:100%;height:75px;';
+    	            $preview_content .= $options_preview_default;
 
     	           }  
 
