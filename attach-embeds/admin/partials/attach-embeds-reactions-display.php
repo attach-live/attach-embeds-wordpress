@@ -13,12 +13,6 @@
 
 	<div id="attach-embeds-services-block">
 
-	<?php if(!is_ssl()){ ?>
-		<div class="notice notice-error">
-                <p><?php _e('This plugin requires a secure https connection.', 'attach-embeds') ?></p>
-            </div>
-	<?php } ?> 
-		
 		<?php
 
 		settings_fields( 'attach_embeds_reactions' );

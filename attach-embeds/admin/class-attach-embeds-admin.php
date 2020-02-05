@@ -166,7 +166,7 @@ class Attach_Embeds_Admin {
 		
 		add_settings_field( 
 			'attach_embeds_text_evaluation_key', 
-			__( 'Evaluation Key', 'attach-embeds' ), 
+			__( 'Evaluation key', 'attach-embeds' ), 
 			array($this, 'attach_embeds_text_evaluation_key'), 
 			'attach_embeds_options', 
 			'attach_embeds_settings_section',
@@ -175,7 +175,7 @@ class Attach_Embeds_Admin {
 
 		add_settings_field( 
 			'attach_embeds_text_domain_verification_code', 
-			__( 'Domain Verification Code', 'attach-embeds' ), 
+			__( 'Domain verification code', 'attach-embeds' ), 
 			array($this, 'attach_embeds_text_domain_verification_code'), 
 			'attach_embeds_options', 
 			'attach_embeds_settings_section',
@@ -258,7 +258,7 @@ class Attach_Embeds_Admin {
 	
 			
 			<a class="help-link" href="<?php echo esc_url('https://developers.attach.live/organizations/latest/projects/latest/evaluation')?>" target="_new">
-			<?php _e( 'Create an account or get a key ', 'attach-embeds' ) ?>
+			<?php _e( 'Create an account or get a key', 'attach-embeds' ) ?>
 			</a>
 			
 		
@@ -275,7 +275,7 @@ class Attach_Embeds_Admin {
 		
 			
 			<a class="help-link" href="<?php echo esc_url('https://developers.attach.live/organizations/latest/domains')?>" target="_new">
-			<?php _e( 'Validate your domain ', 'attach-embeds' ) ?>
+			<?php _e( 'Verify your domain', 'attach-embeds' ) ?>
 			</a>
 			
 		<?php
@@ -287,16 +287,11 @@ class Attach_Embeds_Admin {
 	 * @return void
 	 */		
 	function attach_embeds_settings_section_callback() { 
-	
-		echo '<h1 class="section-title">' . esc_html__('Setup', 'attach-embeds') . '</h1>
-		<p style="margin-top: 30px;">' . esc_html__('For an evaluation key, register with Attach and create an account, 
-		then copy the key here. Evaluation projects can be run on localhost, but no feeds will be sent to the Attach social network. 
-		Once you are ready for serving to your customers, verify your domain and click “Start serving” 
-		on the “Production” tab in the Attach developer platform. Your evaluation key will automatically expire after the time you 
-		have set and you will need to get a new key to continue developing once expired.', 'attach-embeds') . 
-		'</p>
-		<!--<a class="help-link" class="attach-embeds-settings-section" href="https://youtube.com" target="_blank">'.esc_html__('Watch a video how to get started with Attach.','attach-embeds') .'</a>-->';
 
+		echo '<h1 class="section-title">' . esc_html__('Setup', 'attach-embeds') . '</h1>
+		<p style="margin-top: 30px;">' . esc_html__('For an evaluation key, register with Attach and create an account, then copy the key here. Evaluation projects can be run on "localhost", but no feeds will be sent to the Attach social network. Once you are ready for serving to your customers, verify your domain and click "Start serving" on the "Production" tab in the Attach developer platform. Your evaluation key will automatically expire after the time you have set and you will need to get a new key to continue developing once expired.', 'attach-embeds') . 
+		'</p>
+		<!--<a class="help-link" class="attach-embeds-settings-section" href="https://youtube.com" target="_blank">'.esc_html__('Watch a video how to get started with Attach','attach-embeds') .'</a>-->';
 	}
 
 	function attach_embeds_configure_section_callback(){
@@ -322,8 +317,8 @@ class Attach_Embeds_Admin {
 	}
 
 	function attach_embeds_reactions_section_callback(){
-		echo '<h1 class="section-title">' . esc_html__('Reactions Embed','attach-embeds') . '</h1>
-		<p style="margin-top: 30px;">' . esc_html__('The Reactions Embed is enabled for all Posts by default. If you wish to control where the embed is placed, disable it here and use the shortcode in your templates, instead.','attach-embeds') . '</p>';
+		echo '<h1 class="section-title"> Reactions Embed </h1>
+		<p style="margin-top: 30px;">' . esc_html__('The Reactions Embed is enabled for all posts by default. If you wish to control where the embed is placed, disable it here and use the shortcode instead.','attach-embeds') . '</p>';
 	}
 
 	function attach_embeds_enable_reaction_posts() {
@@ -341,7 +336,7 @@ class Attach_Embeds_Admin {
 		?>
 		<input type="checkbox" class="ios8-switch" id="attach_embeds_light" name='attach_embeds_reactions_settings[attach_embeds_enable_reaction_posts]' value='enable' 
 				<?php echo ($options['attach_embeds_enable_reaction_posts'] == 'enable') ? 'checked' : '' ?> > 
-				<label for="attach_embeds_light"><b><?php echo __( 'Enable for Posts', 'attach-embeds' ) ?></b><br/></label>
+				<label for="attach_embeds_light"><b><?php echo __( 'Enable for posts', 'attach-embeds' ) ?></b><br/></label>
 		<?php
 		
 	}
@@ -370,15 +365,14 @@ class Attach_Embeds_Admin {
 		<span class="code-style">&lt;&sol;style&gt;</span>
 		
 			<a style="margin-top:30px;display:inline-block" href="<?php echo esc_url('https://developers.attach.live/organizations/latest/projects/latest/embeds/reactions')?>" target="_new">
-			<?php _e( 'Configure visuals ', 'attach-embeds' ) ?>
+			<?php _e( 'Configure visuals', 'attach-embeds' ) ?>
 			</a>
 			
 		<?php
 	}
 	function attach_embeds_previews_section_callback(){
-		echo '<h1 class="section-title">' . esc_html__('Preview Embed','attach-embeds') . '</h1>
-		<p style="margin-top: 30px;">' . esc_html__('The Preview Embed is enabled on the Blog Posts Page by default. 
-		If you wish to control where the embed is placed, disable it here and use the shortcode in your templates, instead.','attach-embeds') . '</p>';
+		echo '<h1 class="section-title"> Preview Embed </h1>
+		<p style="margin-top: 30px;">' . esc_html__('The Preview Embed is disabled by default because some themes do not properly display it. For most themes, which includes all default themes, you may just enable it here, otherwise you may wish to place the embed using its shortcode, instead.','attach-embeds') . '</p>';
 	}
 
 	function attach_embeds_enable_preview_posts() {
@@ -396,7 +390,7 @@ class Attach_Embeds_Admin {
 		?>
 		<input type="checkbox" class="" id="attach_embeds_light" name='attach_embeds_preview_settings[attach_embeds_enable_preview_posts]' value='enable' 
 				<?php echo ($options['attach_embeds_enable_preview_posts'] == 'enable') ? 'checked' : '' ?> > 
-				<label for="attach_embeds_light"><b><?php echo __( 'Enable for Blog Post Page', 'attach-embeds' ) ?></b><br/></label>
+				<label for="attach_embeds_light"><b><?php echo __( 'Enable for blog post page', 'attach-embeds' ) ?></b><br/></label>
 		<?php
 		
 	}
@@ -427,7 +421,7 @@ class Attach_Embeds_Admin {
 		
 			
 			<a style="margin-top:30px;display:inline-block" href="<?php echo esc_url('https://developers.attach.live/organizations/latest/projects/latest/embeds/preview')?>" target="_new">
-			<?php _e( 'Configure visuals ', 'attach-embeds' ) ?>
+			<?php _e( 'Configure visuals', 'attach-embeds' ) ?>
 			</a>
 		
 		<?php

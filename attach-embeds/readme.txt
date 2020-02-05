@@ -2,8 +2,8 @@
 Contributors: jahur
 Tags: social media, blog, press, comment, video, embed, attach, article, vlog, reactions, preview, vote, questionnaire, emoticons, free
 Requires at least: 4.9
-Tested up to: 5.2.3
-Stable tag: 1.0.0
+Tested up to: 5.3.2
+Stable tag: 0.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,13 +39,13 @@ Then others can upvote and downvote your comments.
 5.	On the Evaluation tab in your project settings, copy the evaluation key.
 6.	In WordPress, paste the evaluation key into the appropriate textbox on the Setup tab.
 
-== Development ==
+= Development =
 
 -	Your evaluation key is valid for a limited time, by default for one week.
 -	You need a valid evaluation key for running your page off your domain.
 -	If required, get another key on the Attach developer platform [https://developers.attach.live/organizations/latest/projects/latest/evaluation](https://developers.attach.live/organizations/latest/projects/latest/evaluation).
 
-== Production ==
+= Production =
 
 -	Enter your domain on the Attach developer platform
 [https://developers.attach.live/organizations/latest/domains/new](https://developers.attach.live/organizations/latest/domains/new).
@@ -60,9 +60,9 @@ Write to team@attach.live for feature requests, suggestions, and support.
 
 == Screenshots ==
 
-1. screenshot-1.jpg
-2. screenshot-2.jpg
-3. screenshot-3.jpg
+1. screenshot-ui-reactions.png
+2. screenshot-admin-setup.png
+3. screenshot-admin-reactions.png
 
 == Changelog ==
 

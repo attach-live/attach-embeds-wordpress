@@ -1,0 +1,21 @@
+<svg id="icon-android.svg_icon-web.svg" data-name="icon-android.svg, icon-web.svg" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff0;
+      }
+
+      .cls-2 {
+        stroke: #000;
+        stroke-width: 2px;
+      }
+
+      .cls-2, .cls-3 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect id="background" class="cls-1" width="1024" height="1024"/>
+  <path id="line" class="cls-2" d="M223,881V857H850v24H223Z"/>
+  <path id="A" class="cls-3" d="M770.239,661.793l-58-22L541.572,220.459H472.906l-164,419.334-54.667,22v29.333H428.906V661.793l-53.334-22,47.334-118H596.239l47.333,118-54.666,22v29.333H770.239V661.793Zm-330-185.334,68-187.333,70.667,187.333H440.239Z"/>
+</svg>
