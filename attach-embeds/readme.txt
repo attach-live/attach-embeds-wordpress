@@ -11,11 +11,9 @@ The Attach plugin adds Attach social embeds to WordPress Posts and Pages.
 
 == Description ==
 
-The Attach plugin adds Attach social embeds to WordPress Posts and Pages. 
-Attach Reactions lets your visitors comment your blog posts in text and video. 
-Then others can upvote and downvote your comments.
+The Attach plugin adds Attach social embeds to WordPress Posts and Pages. Attach Reactions lets your visitors comment your blog posts in text and video. Then others can upvote and downvote your comments.
 
-== Features ==
+= Features =
 
 -	Record a short video reaction or write a text comment.
 -	Upvote, downvote, share and otherwise interact socially.
@@ -23,7 +21,7 @@ Then others can upvote and downvote your comments.
 -	Auto-display below all posts or use shortcode.
 -	Updates automatically when Attach embeds update.
 
-== Coming soon ==
+= Coming soon =
 
 -	Express your feelings with emoticons.
 -	Voting, Questionnaires.
@@ -66,5 +64,8 @@ Write to team@attach.live for feature requests, suggestions, and support.
 
 == Changelog ==
 
-= 1.0.0 =
-* Initial release.
+= 1.0 =
+* Beta releases.
+
+= 1.3 =
+* Release candidates.
