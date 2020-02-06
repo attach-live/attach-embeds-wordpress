@@ -45,7 +45,7 @@ case $BRANCH_NAME in prod*)
     sed -i "s/Stable tag: $REMOTE_VERSION/Stable tag: $VERSION/g" ./attach-embeds/readme.txt
 
     # publish
-    cp -rf attach-embeds/assets attach-embeds-remote/assets
+    cp -rf attach-embeds/assets/* attach-embeds-remote/assets
     cp -rf attach-embeds attach-embeds-remote/tags/$VERSION
     cd attach-embeds-remote
     svn add tags/$VERSION
