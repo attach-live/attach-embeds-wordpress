@@ -49,6 +49,7 @@ case $BRANCH_NAME in prod*)
     cp -rf attach-embeds attach-embeds-remote/tags/$VERSION
     cd attach-embeds-remote
     svn add tags/$VERSION
+    svn add --force assets/*
     svn ci -m "Version $VERSION" --no-auth-cache --username $SVN_USERNAME --password $SVN_PASSWORD
   else
     # log and exit
