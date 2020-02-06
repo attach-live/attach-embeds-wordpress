@@ -341,25 +341,30 @@ class Attach_Embeds_Admin {
 		
 	}
 
+	public function attach_embeds_defaults_trim($trimmed_content){
+		$trimmed = trim(preg_replace("/\s+/", "", $trimmed_content));
+		$trimmed = str_replace(';',";\n",$trimmed);
+		$trimmed = str_replace(':',":",$trimmed);
+		return $trimmed;
+	}
 
 	function attach_embeds_styles_reaction(){
 		$options = get_option( 'attach_embeds_reactions_settings' );
 		$reaction_default_css = get_option( 'reaction_default_css' );
 		if ( !isset ( $options['attach_embeds_styles_reaction'] ) )
 			$options['attach_embeds_styles_reaction'] = '';
-			$options['attach_embeds_styles_reaction'] = trim(preg_replace("/\s+/", "", $options['attach_embeds_styles_reaction']));
+			//$options['attach_embeds_styles_reaction'] = trim(preg_replace("/\s+/", "", $options['attach_embeds_styles_reaction']));
 			
 		?>
 		<span class="code-style">&lt;style&gt;</span>
 		<span class="code-style">.attach-reactions{</span>
 		<textarea class="code-field" rows="6" cols="50" name='attach_embeds_reactions_settings[attach_embeds_styles_reaction]'><?php
 		if($options['attach_embeds_styles_reaction'] == ''){
-			$style_reactions = $reaction_default_css;
-			echo str_replace(' ',"",$style_reactions);
+			echo $this->attach_embeds_defaults_trim($reaction_default_css);
 		}else{
 			$options['attach_embeds_styles_reaction'] = sanitize_text_field($options['attach_embeds_styles_reaction']);
 			$g = str_replace(';',";\n",$options['attach_embeds_styles_reaction']);
-			echo str_replace(':',":",$g);
+			echo $this->attach_embeds_defaults_trim($options['attach_embeds_styles_reaction']);
 		}
 			
 		?></textarea>
@@ -403,20 +408,20 @@ class Attach_Embeds_Admin {
 		$preview_default_css = get_option( 'preview_default_css' );
 		if ( !isset ( $options['attach_embeds_styles_preview'] ) )
 			$options['attach_embeds_styles_preview'] = '';
-			$options['attach_embeds_styles_preview'] = trim(preg_replace("/\s+/", "", $options['attach_embeds_styles_preview']));
+			//$options['attach_embeds_styles_preview'] = trim(preg_replace("/\s+/", "", $options['attach_embeds_styles_preview']));
 		?>
 		<span class="code-style">&lt;style&gt;</span>
 		<span class="code-style">.attach-preview{</span>
 		<textarea class="code-field" rows="6" cols="50" name='attach_embeds_preview_settings[attach_embeds_styles_preview]'><?php 
 		
 		if($options['attach_embeds_styles_preview'] == ''){
-			$style_preview=$preview_default_css;
-			echo str_replace(' ',"",$style_preview);
+			//$style_preview=$preview_default_css;
+			echo $this->attach_embeds_defaults_trim($preview_default_css);
 		}else{
 			
 			$options['attach_embeds_styles_preview'] = sanitize_text_field($options['attach_embeds_styles_preview']);
-			$g = str_replace(';',";\n",$options['attach_embeds_styles_preview']);
-			echo str_replace(':',":",$g);
+			//$g = str_replace(';',";\n",$options['attach_embeds_styles_preview']);
+			echo $this->attach_embeds_defaults_trim($options['attach_embeds_styles_preview']);
 		}
 		
 		?></textarea>
