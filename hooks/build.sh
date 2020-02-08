@@ -29,7 +29,9 @@ case $BRANCH_NAME in prod*)
   REMOTE_VERSION="$(ls ./attach-embeds-remote/tags | cut -f1 -d'/' | sort | tail -n 1)"
   sed -i "s/0.0.0/$REMOTE_VERSION/g" ./attach-embeds/attach-embeds.php
   sed -i "s/Stable tag: 0.0.0/Stable tag: $REMOTE_VERSION/g" ./attach-embeds/readme.txt
+  set +e
   DIFFERS="$(diff -rq attach-embeds attach-embeds-remote/tags/$REMOTE_VERSION)"
+  set -e
 
   if [ ! -z "$DIFFERS" ]; then
     # log
@@ -43,10 +45,11 @@ case $BRANCH_NAME in prod*)
     sed -i "s/Stable tag: $REMOTE_VERSION/Stable tag: $VERSION/g" ./attach-embeds/readme.txt
 
     # publish
-    cp -rf attach-embeds/assets attach-embeds-remote/assets
+    cp -rf attach-embeds/assets/* attach-embeds-remote/assets
     cp -rf attach-embeds attach-embeds-remote/tags/$VERSION
     cd attach-embeds-remote
     svn add tags/$VERSION
+    svn add --force assets/*
     svn ci -m "Version $VERSION" --no-auth-cache --username $SVN_USERNAME --password $SVN_PASSWORD
   else
     # log and exit
