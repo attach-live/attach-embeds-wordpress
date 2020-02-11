@@ -291,7 +291,7 @@ class Attach_Embeds_Admin {
 		echo '<h1 class="section-title">' . esc_html__('Setup', 'attach-embeds') . '</h1>
 		<p style="margin-top: 30px;">' . esc_html__('For an evaluation key, register with Attach and create an account, then copy the key here. Evaluation projects can be run on "localhost", but no feeds will be sent to the Attach social network. Once you are ready for serving to your customers, verify your domain and click "Start serving" on the "Production" tab in the Attach developer platform. Your evaluation key will automatically expire after the time you have set and you will need to get a new key to continue developing once expired.', 'attach-embeds') . 
 		'</p>
-		<!--<a class="help-link" class="attach-embeds-settings-section" href="https://youtube.com" target="_blank">'.esc_html__('Watch a video how to get started with Attach','attach-embeds') .'</a>-->';
+		<a class="help-link" class="attach-embeds-settings-section" href="https://youtube.com" target="_blank">'.esc_html__('Watch a video how to get started with Attach','attach-embeds') .'</a>';
 	}
 
 	function attach_embeds_configure_section_callback(){
