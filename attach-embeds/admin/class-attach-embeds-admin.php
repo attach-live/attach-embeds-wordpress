@@ -345,7 +345,7 @@ class Attach_Embeds_Admin {
 		$trimmed = trim(preg_replace("/\s+/", "", $trimmed_content));
 		$trimmed = str_replace(';',";\n",$trimmed);
 		$trimmed = str_replace(':',":",$trimmed);
-		return $trimmed;
+		return rtrim($trimmed);
 	}
 
 	function attach_embeds_styles_reaction(){
@@ -354,7 +354,6 @@ class Attach_Embeds_Admin {
 		if ( !isset ( $options['attach_embeds_styles_reaction'] ) )
 			$options['attach_embeds_styles_reaction'] = '';
 			//$options['attach_embeds_styles_reaction'] = trim(preg_replace("/\s+/", "", $options['attach_embeds_styles_reaction']));
-			
 		?>
 		<span class="code-style">&lt;style&gt;</span>
 		<span class="code-style">.attach-reactions{</span>
@@ -363,7 +362,7 @@ class Attach_Embeds_Admin {
 			echo $this->attach_embeds_defaults_trim($reaction_default_css);
 		}else{
 			$options['attach_embeds_styles_reaction'] = sanitize_text_field($options['attach_embeds_styles_reaction']);
-			$g = str_replace(';',";\n",$options['attach_embeds_styles_reaction']);
+
 			echo $this->attach_embeds_defaults_trim($options['attach_embeds_styles_reaction']);
 		}
 			
